@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AETERNA STORE | Boutique en ligne</title>
+<meta name="description" content="AETERNA STORE, boutique en ligne. Commandez en quelques secondes par WhatsApp. Livraison et retours clairement indiqués.">
+<meta name="theme-color" content="#1d1d1f">
+<link rel="canonical" href="https://aeternastore.netlify.app/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AETERNA STORE">
+<meta property="og:title" content="AETERNA STORE">
+<meta property="og:description" content="Boutique en ligne. Commandez directement par WhatsApp.">
+<meta property="og:url" content="https://aeternastore.netlify.app/">
+<meta property="og:image" content="https://aeternastore.netlify.app/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%231d1d1f'/%3E%3C/svg%3E">
+
+<style>
+  :root {
+    --bg: #f7f6f3; --surface: #ffffff; --ink: #1d1d1f; --muted: #55555c;
+    --line: #d9d7d0; --ok: #1f6f43; --warn: #8a5a00; --bad: #9b1c1c;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #131314; --surface: #1c1c1e; --ink: #f2f2f4; --muted: #b3b3ba;
+      --line: #3a3a3f; --ok: #7fd1a0; --warn: #f0c674; --bad: #ff9b9b;
+      color-scheme: dark;
+    }
+  }
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    color: var(--ink); background: var(--bg); line-height: 1.6;
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+  a { color: inherit; }
+  img { max-width: 100%; height: auto; display: block; }
+  h1, h2, h3 { line-height: 1.25; margin: 0 0 12px; }
+  h2 { font-size: 1.6rem; }
+  h3 { font-size: 1.1rem; }
+  p { margin: 0 0 12px; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+  section { padding: 48px 0; border-bottom: 1px solid var(--line); }
+  .small { font-size: 0.9rem; color: var(--muted); }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  :focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+  header.top { background: var(--surface); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 10; }
+  header.top .wrap { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding-top: 14px; padding-bottom: 14px; }
+  .brand { font-weight: 700; letter-spacing: 0.08em; text-decoration: none; }
+  nav a { margin-left: 18px; text-decoration: none; color: var(--muted); font-size: 0.95rem; }
+  nav a:hover { color: var(--ink); }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 6px; justify-content: center;
+    border: 1px solid var(--ink); background: var(--ink); color: var(--bg);
+    padding: 10px 18px; border-radius: 4px; text-decoration: none;
+    font: inherit; cursor: pointer; min-height: 44px;
+  }
+  .btn.ghost { background: transparent; color: var(--ink); }
+  .btn.danger { border-color: var(--bad); color: var(--bad); background: transparent; }
+  .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .btn.small-btn { min-height: 34px; padding: 6px 10px; font-size: 0.88rem; }
+  .icon { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; flex: none; }
+
+  .hero { padding: 72px 0; }
+  .hero p { color: var(--muted); max-width: 620px; }
+
+  .section-head { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 16px; }
+  select, input, textarea {
+    font: inherit; padding: 9px 10px; border: 1px solid var(--line); border-radius: 4px;
+    background: var(--surface); color: var(--ink); min-height: 40px;
+  }
+  textarea { min-height: 96px; }
+  .inline { display: flex; align-items: center; gap: 8px; font-size: 0.95rem; }
+
+  .grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 14px; display: flex; flex-direction: column; }
+  .card .photo { aspect-ratio: 4 / 3; width: 100%; object-fit: cover; background: var(--bg); border-radius: 2px; margin-bottom: 12px; }
+  .card .cat { font-size: 0.85rem; color: var(--muted); margin: 0; }
+  .card .price { font-weight: 600; margin: 4px 0 8px; }
+  .card .desc { color: var(--muted); font-size: 0.95rem; flex: 1; }
+  .badge { display: inline-block; font-size: 0.85rem; color: var(--warn); margin-bottom: 8px; }
+  .card .btn { margin-top: 12px; }
+
+  .cols { display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+  .box { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 20px; }
+  .box.narrow { max-width: 480px; }
+  details { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 14px 18px; margin-bottom: 10px; }
+  summary { cursor: pointer; font-weight: 600; }
+  details p { margin-top: 10px; color: var(--muted); }
+  .legal h3 { margin-top: 24px; }
+  .legal p { color: var(--muted); font-size: 0.95rem; }
+  ol.plain, ul.plain { margin: 0; padding-left: 20px; }
+  ol.plain li, ul.plain li { margin-bottom: 6px; }
+
+  .admin-bar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 16px; }
+  .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+  .between { justify-content: space-between; margin-bottom: 14px; }
+  .tabs { display: flex; gap: 6px; flex-wrap: wrap; border-bottom: 1px solid var(--line); margin-bottom: 20px; }
+  .tabs button {
+    background: none; border: none; border-bottom: 2px solid transparent; color: var(--muted);
+    font: inherit; padding: 10px 14px; cursor: pointer; min-height: 44px;
+  }
+  .tabs button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--ink); font-weight: 600; }
+
+  .stats { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); margin-bottom: 24px; }
+  .stat { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 16px; display: flex; flex-direction: column; gap: 4px; }
+  .stat strong { font-size: 1.5rem; }
+
+  .table-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; }
+  table { width: 100%; border-collapse: collapse; min-width: 720px; }
+  th, td { text-align: left; padding: 12px; border-bottom: 1px solid var(--line); vertical-align: middle; font-size: 0.95rem; }
+  th { font-size: 0.85rem; color: var(--muted); font-weight: 600; }
+  .prod { display: flex; align-items: center; gap: 12px; }
+  .thumb { width: 48px; height: 48px; object-fit: cover; border-radius: 2px; background: var(--bg); flex: none; }
+  .actions { display: flex; gap: 6px; flex-wrap: wrap; }
+
+  form.admin { display: grid; gap: 14px; max-width: 720px; }
+  .grid2 { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+  label { display: grid; gap: 4px; font-size: 0.95rem; }
+  label.check { display: flex; align-items: center; gap: 8px; }
+  label.check input { min-height: auto; width: 18px; height: 18px; }
+  .msg { min-height: 1.4em; }
+  .ok { color: var(--ok); }
+  .err { color: var(--bad); }
+
+  #cookie { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; background: var(--ink); color: var(--bg); padding: 16px 20px; }
+  #cookie .wrap { display: flex; gap: 16px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+  #cookie p { margin: 0; font-size: 0.95rem; }
+  #cookie .btn { background: var(--bg); color: var(--ink); border-color: var(--bg); }
+
+  #toast {
+    position: fixed; right: 16px; bottom: 16px; z-index: 30; max-width: 360px;
+    background: var(--ink); color: var(--bg); padding: 12px 16px; border-radius: 4px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2); margin-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  footer { padding: 36px 0 120px; color: var(--muted); font-size: 0.95rem; }
+  footer a { color: var(--muted); }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" id="top">AETERNA STORE</a>
+    <nav aria-label="Navigation principale">
+      <a href="#boutique">Boutique</a>
+      <a href="#apropos">À propos</a>
+      <a href="#faq">FAQ</a>
+      <a href="#livraison">Livraison</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <h1>Bienvenue chez AETERNA STORE</h1>
+      <p>Découvrez notre sélection et commandez en quelques secondes. Votre commande est envoyée directement sur WhatsApp, où nous confirmons le produit, le prix et la livraison.</p>
+      <a class="btn" href="#boutique">Voir les produits</a>
+    </div>
+  </section>
+
+  <section id="boutique" aria-labelledby="h-boutique">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="h-boutique">Nos produits</h2>
+        <label class="inline" for="filter-cat">Catégorie
+          <select id="filter-cat"><option value="">Toutes</option></select>
+        </label>
+      </div>
+      <p id="shop-status" class="small" hidden></p>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section id="apropos" aria-labelledby="h-apropos">
+    <div class="wrap">
+      <h2 id="h-apropos">À propos</h2>
+      <p>AETERNA STORE est une boutique en ligne [à compléter : une phrase sur ce que vend la boutique et depuis quand].</p>
+      <p>Chaque commande est traitée personnellement. Nous vous répondons sur WhatsApp pour confirmer le produit, le prix et la livraison.</p>
+    </div>
+  </section>
+
+  <section id="faq" aria-labelledby="h-faq">
+    <div class="wrap">
+      <h2 id="h-faq">Questions fréquentes</h2>
+      <details>
+        <summary>Comment passer commande ?</summary>
+        <p>Cliquez sur « Commander sur WhatsApp » sous le produit choisi. Le message est prérempli, il ne vous reste qu'à l'envoyer.</p>
+      </details>
+      <details>
+        <summary>Quels sont les modes de paiement ?</summary>
+        <p>[à compléter : mobile money, espèces à la livraison, etc.]</p>
+      </details>
+      <details>
+        <summary>Un produit est indiqué en rupture, que faire ?</summary>
+        <p>Cliquez sur « Demander la disponibilité ». Nous vous répondons sur WhatsApp dès que possible.</p>
+      </details>
+      <details>
+        <summary>Puis-je modifier ou annuler ma commande ?</summary>
+        <p>Oui, tant que la commande n'a pas été expédiée. Écrivez-nous sur WhatsApp dès que possible.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="livraison" aria-labelledby="h-livraison">
+    <div class="wrap">
+      <h2 id="h-livraison">Livraison et retours</h2>
+      <div class="cols">
+        <div class="box">
+          <h3>Frais de livraison</h3>
+          <p>[à compléter : ex. Abidjan, X FCFA ; autres villes, Y FCFA]</p>
+        </div>
+        <div class="box">
+          <h3>Délais</h3>
+          <p>[à compléter : ex. 24 à 48 h à Abidjan, 3 à 5 jours ailleurs]</p>
+        </div>
+        <div class="box">
+          <h3>Retours et échanges</h3>
+          <p>Vous disposez de [à compléter : ex. 7] jours après réception pour demander un échange ou un remboursement, si le produit est non utilisé et dans son emballage d'origine. Les frais de retour sont à la charge [à compléter].</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" aria-labelledby="h-contact">
+    <div class="wrap">
+      <h2 id="h-contact">Contact</h2>
+      <p>
+        <a href="https://wa.me/2250797034070" target="_blank" rel="noopener noreferrer">WhatsApp : 07 97 03 40 70</a>
+      </p>
+      <p>Adresse : [à compléter]</p>
+      <p>E-mail : [à compléter]</p>
+      <p class="small">Horaires : [à compléter : ex. lundi au samedi, 9 h à 18 h]</p>
+    </div>
+  </section>
+
+  <section id="legal" class="legal" aria-labelledby="h-legal">
+    <div class="wrap">
+      <h2 id="h-legal">Informations légales</h2>
+
+      <h3 id="mentions">Mentions légales</h3>
+      <p>Éditeur du site : Doumbia Moussa, responsable de la boutique AETERNA STORE.</p>
+      <p>Adresse : [à compléter]. Contact : [à compléter]. Hébergeur : Netlify (https://www.netlify.com).</p>
+
+      <h3 id="confidentialite">Politique de confidentialité</h3>
+      <p>Nous utilisons les informations que vous nous transmettez sur WhatsApp (nom, téléphone, adresse de livraison) uniquement pour traiter votre commande. Elles ne sont pas revendues. Vous pouvez demander leur suppression à tout moment en nous contactant.</p>
+      <p>Le site compte, de manière anonyme, les clics sur les boutons de commande de chaque produit, afin d'améliorer la sélection. Aucun visiteur n'est identifié et aucun traceur publicitaire n'est utilisé.</p>
+      <p>Le choix de la bannière cookies est mémorisé sur votre appareil. Ce stockage est strictement technique.</p>
+
+      <h3 id="cgu">Conditions générales d'utilisation</h3>
+      <p>L'utilisation du site implique l'acceptation des présentes conditions. Les informations sur les produits et les prix peuvent être modifiées à tout moment. [à compléter : relecture juridique recommandée]</p>
+
+      <h3 id="cgv">Conditions générales de vente</h3>
+      <p>Le contrat est conclu lorsque la commande est confirmée par nous sur WhatsApp. Les prix sont indiqués en franc CFA (FCFA), frais de livraison en sus si non précisés. [à compléter : relecture juridique recommandée]</p>
+    </div>
+  </section>
+
+  <section id="espace" hidden aria-labelledby="h-espace">
+    <div class="wrap">
+      <h2 id="h-espace">Espace propriétaire</h2>
+
+      <div id="login-box" hidden>
+        <div class="box narrow">
+          <p>Connexion réservée à la propriétaire. Utilisez uniquement le compte Google autorisé.</p>
+          <button class="btn" id="btn-google" type="button">Se connecter avec Google</button>
+          <p class="small msg err" id="login-msg" role="alert"></p>
+        </div>
+      </div>
+
+      <div id="admin-box" hidden>
+        <div class="admin-bar">
+          <p class="small" style="margin:0">Connecté : <strong id="admin-email"></strong></p>
+          <div class="row">
+            <button class="btn ghost" id="btn-export" type="button">Exporter en CSV</button>
+            <button class="btn ghost" id="btn-logout" type="button">Se déconnecter</button>
+          </div>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="Outils d'administration">
+          <button role="tab" type="button" id="t-dashboard" data-tab="dashboard" aria-selected="true" aria-controls="p-dashboard">Tableau de bord</button>
+          <button role="tab" type="button" id="t-products" data-tab="products" aria-selected="false" aria-controls="p-products" tabindex="-1">Produits</button>
+          <button role="tab" type="button" id="t-form" data-tab="form" aria-selected="false" aria-controls="p-form" tabindex="-1">Ajouter un produit</button>
+        </div>
+
+        <div role="tabpanel" id="p-dashboard" data-panel="dashboard" aria-labelledby="t-dashboard">
+          <div class="stats">
+            <div class="stat"><span class="small">Produits publiés</span><strong id="s-active">0</strong></div>
+            <div class="stat"><span class="small">Produits masqués</span><strong id="s-hidden">0</strong></div>
+            <div class="stat"><span class="small">En rupture</span><strong id="s-out">0</strong></div>
+            <div class="stat"><span class="small">Sans photo</span><strong id="s-nophoto">0</strong></div>
+            <div class="stat"><span class="small">Clics vers WhatsApp</span><strong id="s-clicks">0</strong></div>
+            <div class="stat"><span class="small">Valeur du stock affiché</span><strong id="s-value">0 FCFA</strong></div>
+          </div>
+          <div class="cols">
+            <div class="box">
+              <h3>Produits les plus demandés</h3>
+              <ol class="plain" id="top-list"></ol>
+            </div>
+            <div class="box">
+              <h3>À vérifier</h3>
+              <ul class="plain" id="alerts"></ul>
+            </div>
+          </div>
+        </div>
+
+        <div role="tabpanel" id="p-products" data-panel="products" aria-labelledby="t-products" hidden>
+          <div class="between row">
+            <input type="search" id="admin-search" placeholder="Rechercher un produit" aria-label="Rechercher un produit">
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Produit</th>
+                  <th scope="col">Prix</th>
+                  <th scope="col">Stock</th>
+                  <th scope="col">Clics</th>
+                  <th scope="col">Statut</th>
+                  <th scope="col"><span class="sr">Actions</span></th>
+                </tr>
+              </thead>
+              <tbody id="admin-rows"></tbody>
+            </table>
+          </div>
+          <p class="small" id="admin-empty" hidden>Aucun produit pour le moment. Utilisez l'onglet « Ajouter un produit ».</p>
+        </div>
+
+        <div role="tabpanel" id="p-form" data-panel="form" aria-labelledby="t-form" hidden>
+          <h3 id="form-title">Nouveau produit</h3>
+          <form class="admin" id="product-form" novalidate>
+            <input type="hidden" id="pf-id">
+            <div class="grid2">
+              <label>Nom du produit *
+                <input id="pf-name" required maxlength="120" autocomplete="off">
+              </label>
+              <label>Catégorie
+                <input id="pf-category" maxlength="60" list="cat-list" autocomplete="off">
+                <datalist id="cat-list"></datalist>
+              </label>
+            </div>
+            <div class="grid2">
+              <label>Prix (FCFA) *
+                <input id="pf-price" type="number" min="0" max="100000000" step="1" required inputmode="numeric">
+              </label>
+              <label>Stock disponible (laisser vide si non suivi)
+                <input id="pf-stock" type="number" min="0" max="100000" step="1" inputmode="numeric">
+              </label>
+            </div>
+            <label>Description
+              <textarea id="pf-description" maxlength="800"></textarea>
+            </label>
+            <label>Adresse de la photo (https://...)
+              <input id="pf-image" type="url" maxlength="500" placeholder="https://aeternastore.netlify.app/images/mon-produit.jpg">
+            </label>
+            <label class="check">
+              <input id="pf-active" type="checkbox" checked>
+              Publier sur la boutique
+            </label>
+            <div class="row">
+              <button class="btn" type="submit">Enregistrer</button>
+              <button class="btn ghost" type="button" id="pf-reset">Vider le formulaire</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>AETERNA STORE · WhatsApp : 07 97 03 40 70 · [adresse à compléter]</p>
+    <p>
+      <a href="#mentions">Mentions légales</a> ·
+      <a href="#confidentialite">Confidentialité</a> ·
+      <a href="#cgu">CGU</a> ·
+      <a href="#cgv">CGV</a> ·
+      <a href="#espace">Espace propriétaire</a>
+    </p>
+  </div>
+</footer>
+
+<div id="cookie" hidden>
+  <div class="wrap">
+    <p>Ce site n'utilise que des éléments techniques nécessaires. Aucun cookie publicitaire.</p>
+    <button class="btn" id="cookie-ok" type="button">Compris</button>
+  </div>
+</div>
+
+<div id="toast" role="status" aria-live="polite" hidden></div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+import {
+  getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+import {
+  getFirestore, collection, doc, addDoc, updateDoc, deleteDoc, onSnapshot,
+  query, where, serverTimestamp, increment
+} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+
+/* ===== Configuration ===== */
+const ADMIN_EMAIL = "doumbiamoussa0one@gmail.com";   // compte Google autorisé (identique aux règles Firestore)
+const WA_NUMBER = "2250797034070";
+const IDLE_MS = 30 * 60 * 1000;                  // déconnexion après 30 min d'inactivité
+const firebaseConfig = {
+  apiKey: "AIzaSyD_oSltrEodR8ut1FWmrCbOPBVslHJogZg",
+  authDomain: "white-house667.firebaseapp.com",
+  projectId: "white-house667",
+  storageBucket: "white-house667.firebasestorage.app",
+  messagingSenderId: "499541870918",
+  appId: "1:499541870918:web:ea0e30bf7214129344fd47",
+  measurementId: "G-RNCC9N4WYB"
+};
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+const provider = new GoogleAuthProvider();
+provider.setCustomParameters({ prompt: "select_account" });
+
+/* ===== Utilitaires ===== */
+const $ = (id) => document.getElementById(id);
+const el = (tag, cls) => { const e = document.createElement(tag); if (cls) e.className = cls; return e; };
+const fmt = (n) => new Intl.NumberFormat("fr-FR").format(Number(n) || 0);
+const isHttps = (u) => typeof u === "string" && /^https:\/\/\S+$/.test(u);
+const setText = (id, v) => { $(id).textContent = String(v); };
+const createdMs = (p) => p.createdAt?.toMillis?.() ?? Date.now();
+
+let toastTimer;
+function toast(msg) {
+  const t = $("toast");
+  t.textContent = msg;
+  t.hidden = false;
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => { t.hidden = true; }, 3500);
+}
+
+function mini(label, handler, extra = "") {
+  const b = el("button", `btn ghost small-btn ${extra}`.trim());
+  b.type = "button";
+  b.textContent = label;
+  b.addEventListener("click", handler);
+  return b;
+}
+
+/* ===== Lien de commande WhatsApp ===== */
+function orderLink(p) {
+  const msg = p.stock === 0
+    ? `Bonjour AETERNA STORE, le produit « ${p.name} » est-il de nouveau disponible ?`
+    : `Bonjour AETERNA STORE, je souhaite commander : ${p.name} (${fmt(p.price)} FCFA)`;
+  return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+}
+function fbText(p) {
+  return `${p.name}\n${p.description || ""}\nPrix : ${fmt(p.price)} FCFA\nCommander : ${orderLink(p)}`;
+}
+
+/* ===== Boutique publique ===== */
+let publicProducts = [];
+const grid = $("grid");
+
+function renderCategories() {
+  const select = $("filter-cat");
+  const current = select.value;
+  const cats = [...new Set(publicProducts.map((p) => p.category).filter(Boolean))].sort();
+  select.replaceChildren();
+  select.append(new Option("Toutes", ""));
+  cats.forEach((c) => select.append(new Option(c, c)));
+  select.value = cats.includes(current) ? current : "";
+}
+
+function productCard(p) {
+  const card = el("article", "card");
+
+  if (isHttps(p.imageUrl)) {
+    const img = el("img", "photo");
+    img.src = p.imageUrl;
+    img.alt = p.name || "";
+    img.loading = "lazy";
+    img.decoding = "async";
+    card.append(img);
+  }
+
+  const h = el("h3"); h.textContent = p.name || "";
+  const cat = el("p", "cat"); cat.textContent = p.category || "";
+  const price = el("p", "price"); price.textContent = `${fmt(p.price)} FCFA`;
+  const desc = el("p", "desc"); desc.textContent = p.description || "";
+  card.append(h, cat, price, desc);
+
+  if (p.stock === 0) {
+    const badge = el("p", "badge"); badge.textContent = "Rupture de stock";
+    card.insertBefore(badge, price);
+  }
+
+  const btn = el("a", "btn");
+  btn.href = orderLink(p);
+  btn.target = "_blank";
+  btn.rel = "noopener noreferrer";
+  btn.textContent = p.stock === 0 ? "Demander la disponibilité" : "Commander sur WhatsApp";
+  btn.addEventListener("click", () => countClick(p.id));
+  card.append(btn);
+  return card;
+}
+
+function renderPublic() {
+  const cat = $("filter-cat").value;
+  const list = publicProducts.filter((p) => !cat || p.category === cat);
+  grid.replaceChildren(...list.map(productCard));
+  const status = $("shop-status");
+  if (publicProducts.length === 0) {
+    status.textContent = "Aucun produit pour le moment. Revenez bientôt.";
+    status.hidden = false;
+  } else if (list.length === 0) {
+    status.textContent = "Aucun produit dans cette catégorie.";
+    status.hidden = false;
+  } else {
+    status.hidden = true;
+  }
+}
+
+async function countClick(id) {
+  try { await updateDoc(doc(db, "products", id), { clicks: increment(1) }); } catch { /* comptage non bloquant */ }
+}
+
+$("filter-cat").addEventListener("change", renderPublic);
+
+onSnapshot(
+  query(collection(db, "products"), where("active", "==", true)),
+  (snap) => {
+    publicProducts = snap.docs.map((d) => ({ id: d.id, ...d.data() })).sort((a, b) => createdMs(b) - createdMs(a));
+    renderCategories();
+    renderPublic();
+  },
+  () => {
+    const status = $("shop-status");
+    status.textContent = "Les produits ne peuvent pas être chargés pour le moment.";
+    status.hidden = false;
+  }
+);
+
+/* ===== Espace propriétaire ===== */
+let adminProducts = [];
+let isAdmin = false;
+let unsubAdmin = null;
+let idleTimer = null;
+
+function enterAdmin(user) {
+  isAdmin = true;
+  setText("admin-email", user.email);
+  $("login-box").hidden = true;
+  $("admin-box").hidden = false;
+  if (!unsubAdmin) {
+    unsubAdmin = onSnapshot(
+      collection(db, "products"),
+      (snap) => {
+        adminProducts = snap.docs.map((d) => ({ id: d.id, ...d.data() })).sort((a, b) => createdMs(b) - createdMs(a));
+        renderDashboard();
+        renderTable();
+        renderCategories();
+        renderPublic();
+      },
+      () => toast("Lecture refusée. Vérifiez les règles Firestore.")
+    );
+  }
+  resetIdle();
+}
+
+function leaveAdmin() {
+  isAdmin = false;
+  if (unsubAdmin) { unsubAdmin(); unsubAdmin = null; }
+  adminProducts = [];
+  clearTimeout(idleTimer);
+  $("admin-box").hidden = true;
+  $("login-box").hidden = false;
+}
+
+onAuthStateChanged(auth, (user) => {
+  if (user && user.email === ADMIN_EMAIL && user.emailVerified) {
+    enterAdmin(user);
+  } else {
+    leaveAdmin();
+    if (user) {
+      $("login-msg").textContent = "Ce compte Google n'est pas autorisé.";
+      signOut(auth);
+    }
+  }
+});
+
+$("btn-google").addEventListener("click", async () => {
+  $("login-msg").textContent = "";
+  try {
+    await signInWithPopup(auth, provider);
+  } catch {
+    $("login-msg").textContent = "Connexion impossible. Réessayez.";
+  }
+});
+
+$("btn-logout").addEventListener("click", () => signOut(auth));
+
+// Déconnexion automatique après inactivité
+function resetIdle() {
+  if (!isAdmin) return;
+  clearTimeout(idleTimer);
+  idleTimer = setTimeout(() => {
+    toast("Session fermée après inactivité.");
+    signOut(auth);
+  }, IDLE_MS);
+}
+["click", "keydown", "pointermove", "touchstart"].forEach((ev) =>
+  document.addEventListener(ev, resetIdle, { passive: true })
+);
+
+// Ouverture de l'espace par l'adresse #espace
+function openEspaceIfRequested() {
+  if (location.hash === "#espace") {
+    $("espace").hidden = false;
+    $("espace").scrollIntoView();
+  }
+}
+window.addEventListener("hashchange", openEspaceIfRequested);
+openEspaceIfRequested();
+
+/* ===== Onglets ===== */
+function showTab(name) {
+  document.querySelectorAll("[data-tab]").forEach((b) => {
+    const on = b.dataset.tab === name;
+    b.setAttribute("aria-selected", String(on));
+    b.tabIndex = on ? 0 : -1;
+  });
+  document.querySelectorAll("[data-panel]").forEach((p) => {
+    p.hidden = p.dataset.panel !== name;
+  });
+}
+document.querySelectorAll("[data-tab]").forEach((b) =>
+  b.addEventListener("click", () => showTab(b.dataset.tab))
+);
+
+/* ===== Tableau de bord ===== */
+function renderDashboard() {
+  const all = adminProducts;
+  const live = all.filter((p) => p.active !== false);
+  const hiddenCount = all.length - live.length;
+  const out = live.filter((p) => p.stock === 0);
+  const noPhoto = all.filter((p) => !isHttps(p.imageUrl));
+  const clicks = all.reduce((s, p) => s + (Number(p.clicks) || 0), 0);
+  const value = live.reduce((s, p) =>
+    s + (typeof p.stock === "number" ? (Number(p.price) || 0) * p.stock : 0), 0);
+
+  setText("s-active", live.length);
+  setText("s-hidden", hiddenCount);
+  setText("s-out", out.length);
+  setText("s-nophoto", noPhoto.length);
+  setText("s-clicks", fmt(clicks));
+  setText("s-value", `${fmt(value)} FCFA`);
+
+  const topList = $("top-list");
+  topList.replaceChildren();
+  const top = [...all].filter((p) => p.clicks > 0).sort((a, b) => b.clicks - a.clicks).slice(0, 5);
+  if (top.length === 0) {
+    const li = el("li"); li.textContent = "Aucun clic pour le moment.";
+    topList.append(li);
+  } else {
+    top.forEach((p) => {
+      const li = el("li"); li.textContent = `${p.name} : ${p.clicks} clic(s)`;
+      topList.append(li);
+    });
+  }
+
+  const alerts = $("alerts");
+  alerts.replaceChildren();
+  const add = (text) => { const li = el("li"); li.textContent = text; alerts.append(li); };
+  if (out.length) add(`En rupture : ${out.map((p) => p.name).join(", ")}`);
+  if (noPhoto.length) add(`Sans photo : ${noPhoto.map((p) => p.name).join(", ")}`);
+  if (hiddenCount) add(`${hiddenCount} produit(s) masqué(s), invisibles pour les clients.`);
+  if (!alerts.children.length) add("Rien à signaler.");
+}
+
+/* ===== Liste des produits ===== */
+function renderTable() {
+  const q = $("admin-search").value.trim().toLowerCase();
+  const rows = adminProducts.filter((p) => !q || `${p.name || ""} ${p.category || ""}`.toLowerCase().includes(q));
+  const tbody = $("admin-rows");
+  tbody.replaceChildren();
+  $("admin-empty").hidden = adminProducts.length > 0;
+
+  for (const p of rows) {
+    const tr = el("tr");
+
+    const tdName = el("td");
+    const wrap = el("div", "prod");
+    if (isHttps(p.imageUrl)) {
+      const img = el("img", "thumb");
+      img.src = p.imageUrl; img.alt = ""; img.loading = "lazy";
+      wrap.append(img);
+    }
+    const info = el("div");
+    const name = el("strong"); name.textContent = p.name || "";
+    const cat = el("div", "small"); cat.textContent = p.category || "Sans catégorie";
+    info.append(name, cat);
+    wrap.append(info);
+    tdName.append(wrap);
+
+    const tdPrice = el("td"); tdPrice.textContent = `${fmt(p.price)} FCFA`;
+    const tdStock = el("td"); tdStock.textContent = typeof p.stock === "number" ? String(p.stock) : "Non suivi";
+    const tdClicks = el("td"); tdClicks.textContent = String(p.clicks || 0);
+
+    const tdStatus = el("td");
+    const isOn = p.active !== false;
+    const toggle = mini(isOn ? "Publié" : "Masqué", () => setActive(p, !isOn));
+    toggle.setAttribute("aria-label", `${isOn ? "Masquer" : "Publier"} ${p.name || "ce produit"}`);
+    tdStatus.append(toggle);
+
+    const tdAct = el("td", "actions");
+    tdAct.append(
+      mini("Modifier", () => editProduct(p)),
+      mini("Dupliquer", () => duplicateProduct(p)),
+      mini("Facebook", () => copyText(fbText(p))),
+      mini("Supprimer", () => removeProduct(p), "danger")
+    );
+
+    tr.append(tdName, tdPrice, tdStock, tdClicks, tdStatus, tdAct);
+    tbody.append(tr);
+  }
+}
+$("admin-search").addEventListener("input", renderTable);
+
+async function setActive(p, value) {
+  try {
+    await updateDoc(doc(db, "products", p.id), { active: value, updatedAt: serverTimestamp() });
+    toast(value ? "Produit publié." : "Produit masqué.");
+  } catch {
+    toast("Action impossible. Vérifiez votre connexion.");
+  }
+}
+
+async function removeProduct(p) {
+  if (!confirm(`Supprimer définitivement « ${p.name} » ?`)) return;
+  try {
+    await deleteDoc(doc(db, "products", p.id));
+    toast("Produit supprimé.");
+  } catch {
+    toast("Suppression impossible.");
+  }
+}
+
+async function copyText(text) {
+  try {
+    await navigator.clipboard.writeText(text);
+    toast("Texte copié. Collez-le dans Facebook ou Meta Business Suite.");
+  } catch {
+    window.prompt("Copiez ce texte :", text);
+  }
+}
+
+/* ===== Formulaire produit ===== */
+function fillForm(p) {
+  $("pf-id").value = p?.id || "";
+  $("pf-name").value = p?.name || "";
+  $("pf-category").value = p?.category || "";
+  $("pf-price").value = p?.price ?? "";
+  $("pf-stock").value = typeof p?.stock === "number" ? String(p.stock) : "";
+  $("pf-description").value = p?.description || "";
+  $("pf-image").value = p?.imageUrl || "";
+  $("pf-active").checked = p ? p.active !== false : true;
+  $("form-title").textContent = p?.id ? "Modifier le produit" : "Nouveau produit";
+  const list = $("cat-list");
+  list.replaceChildren(...[...new Set(adminProducts.map((x) => x.category).filter(Boolean))].map((c) => {
+    const o = el("option"); o.value = c; return o;
+  }));
+}
+
+function editProduct(p) {
+  fillForm(p);
+  showTab("form");
+  $("pf-name").focus();
+}
+
+function duplicateProduct(p) {
+  fillForm({ ...p, id: "", name: `${p.name} (copie)`, active: false });
+  showTab("form");
+  toast("Copie créée en mode masqué. Modifiez-la puis enregistrez.");
+  $("pf-name").focus();
+}
+
+function readForm() {
+  const fail = (m) => { toast(m); return null; };
+  const name = $("pf-name").value.trim();
+  const price = Math.round(Number($("pf-price").value));
+  const stockRaw = $("pf-stock").value.trim();
+  const stock = stockRaw === "" ? null : Math.round(Number(stockRaw));
+  const imageUrl = $("pf-image").value.trim();
+
+  if (name.length < 2 || name.length > 120) return fail("Le nom doit contenir entre 2 et 120 caractères.");
+  if (!Number.isFinite(price) || price < 0 || price > 100000000) return fail("Prix invalide.");
+  if (stock !== null && (!Number.isFinite(stock) || stock < 0 || stock > 100000)) return fail("Stock invalide.");
+  if (imageUrl && !isHttps(imageUrl)) return fail("La photo doit être une adresse qui commence par https://");
+
+  return {
+    name,
+    category: $("pf-category").value.trim().slice(0, 60),
+    price,
+    stock,
+    description: $("pf-description").value.trim().slice(0, 800),
+    imageUrl,
+    active: $("pf-active").checked
+  };
+}
+
+$("product-form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  if (!isAdmin) return;
+  const data = readForm();
+  if (!data) return;
+  const id = $("pf-id").value;
+  try {
+    if (id) {
+      await updateDoc(doc(db, "products", id), { ...data, updatedAt: serverTimestamp() });
+    } else {
+      await addDoc(collection(db, "products"), {
+        ...data, clicks: 0, createdAt: serverTimestamp(), updatedAt: serverTimestamp()
+      });
+    }
+    toast("Produit enregistré.");
+    fillForm(null);
+    showTab("products");
+  } catch {
+    toast("Enregistrement impossible. Vérifiez votre connexion.");
+  }
+});
+
+$("pf-reset").addEventListener("click", () => fillForm(null));
+
+/* ===== Export CSV ===== */
+$("btn-export").addEventListener("click", () => {
+  const head = ["Nom", "Catégorie", "Prix FCFA", "Stock", "Publié", "Clics", "Photo", "Description"];
+  const rows = adminProducts.map((p) => [
+    p.name, p.category, p.price, typeof p.stock === "number" ? p.stock : "",
+    p.active !== false ? "oui" : "non", p.clicks || 0, p.imageUrl || "", p.description || ""
+  ]);
+  const csv = [head, ...rows]
+    .map((r) => r.map((v) => `"${String(v ?? "").replace(/"/g, '""')}"`).join(";"))
+    .join("\r\n");
+  const blob = new Blob(["\uFEFF" + csv], { type: "text/csv;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `aeterna-produits-${new Date().toISOString().slice(0, 10)}.csv`;
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+});
+
+/* ===== Bannière technique ===== */
+const cookie = $("cookie");
+if (!localStorage.getItem("aeterna-cookies")) cookie.hidden = false;
+$("cookie-ok").addEventListener("click", () => {
+  try { localStorage.setItem("aeterna-cookies", "1"); } catch { /* navigation privée */ }
+  cookie.hidden = true;
+});
+
+showTab("dashboard");
+</script>
+</body>
+</html>
