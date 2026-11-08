@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AETERNA STORE | Boutique en ligne</title>
+<meta name="description" content="AETERNA STORE, boutique en ligne. Commandez en quelques secondes par WhatsApp. Livraison et retours clairement indiqués.">
+<meta name="theme-color" content="#1A1F4A">
+<link rel="canonical" href="https://aeternastore.netlify.app/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AETERNA STORE">
+<meta property="og:title" content="AETERNA STORE">
+<meta property="og:description" content="Boutique en ligne. Commandez directement par WhatsApp.">
+<meta property="og:url" content="https://aeternastore.netlify.app/">
+<meta property="og:image" content="https://aeternastore.netlify.app/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231A1F4A'/%3E%3Cpath d='M16 16C19 10 25 10 25 16C25 22 19 22 16 16C13 10 7 10 7 16C7 22 13 22 16 16Z' fill='none' stroke='%23D2B26A' stroke-width='2.2' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Marcellus&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Store","name":"AETERNA STORE","url":"https://aeternastore.netlify.app/","telephone":"+2250797034070"}</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#collection">Aller à la collection</a>
+
+
+
+<div class="topbar" id="topbar">Commande simple : ajoutez au panier, puis envoyez sur WhatsApp.</div>
+<div class="pause" id="pause" role="status" hidden></div>
+<header class="hdr"><div class="wrap hdr-in"><a class="logo" href="#top" aria-label="AETERNA STORE, haut de page"><svg width="34" height="17" viewBox="0 0 200 100" fill="none" stroke="currentColor" stroke-width="9" stroke-linejoin="round" aria-hidden="true"><path d="M100 50C130 8 190 8 190 50C190 92 130 92 100 50C70 8 10 8 10 50C10 92 70 92 100 50Z"/></svg><span class="lg-name">AETERNA</span><span class="lg-sub">STORE</span></a>
+<nav class="nav" aria-label="Navigation principale"><a href="#collection">Collection</a><a href="#apropos">À propos</a><a href="#faq">FAQ</a><a href="#livraison">Livraison</a><a href="#contact">Contact</a></nav>
+<div class="acts"><button class="cartbtn" data-action="cart" aria-label="Ouvrir le panier"><svg class="ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span class="count" id="count"></span></button></div></div></header>
+
+<main id="top">
+<section class="hero"><div class="wrap hero-in"><h1 id="hero-h">Choisissez vos articles, commandez sur WhatsApp.</h1><p id="hero-p">Parcourez la collection, remplissez votre panier et envoyez la commande sur WhatsApp. Nous confirmons avec vous le produit, le prix et la livraison.</p><div class="hero-cta"><a class="btn light" href="#collection">Voir la collection</a><button class="btn ghost" data-action="wa-hello"><svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 0 1-11.7 7.1L4 20l1-4A8 8 0 1 1 20 12Z"/><path d="M9.2 9.5c0 2.9 2.4 5.3 5.3 5.3l1-1.3-1.9-.9-.8.8a3.2 3.2 0 0 1-1.5-1.5l.8-.8-.9-1.9-2 .3Z"/></svg>Écrire sur WhatsApp</button></div></div>
+<svg class="orn" viewBox="0 0 200 100" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M100 50C130 8 190 8 190 50C190 92 130 92 100 50C70 8 10 8 10 50C10 92 70 92 100 50Z"/></svg></section>
+
+<section id="collection" class="wrap sec" aria-labelledby="h-collection"><div class="sec-h"><h2 id="h-collection">La collection</h2><span id="n"></span></div>
+<div class="tools"><label class="search"><svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" type="search" placeholder="Rechercher" aria-label="Rechercher un article" autocomplete="off"></label>
+<select id="sort" aria-label="Trier les articles"><option value="new">Nouveautés</option><option value="asc">Prix croissant</option><option value="desc">Prix décroissant</option></select></div>
+<div class="chips" id="chips" role="group" aria-label="Catégories"></div><div class="grid" id="grid"></div></section>
+
+<section id="infos" class="wrap infos"><div class="info"><span class="ico"><svg class="ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 0 1-11.7 7.1L4 20l1-4A8 8 0 1 1 20 12Z"/><path d="M9.2 9.5c0 2.9 2.4 5.3 5.3 5.3l1-1.3-1.9-.9-.8.8a3.2 3.2 0 0 1-1.5-1.5l.8-.8-.9-1.9-2 .3Z"/></svg></span><div><h3>Commande sur WhatsApp</h3><p>Votre panier arrive directement dans notre discussion, sans compte à créer.</p></div></div>
+<div class="info"><span class="ico"><svg class="ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h11v10H3zM14 9h4l3 3v4h-7"/><circle cx="7" cy="17.5" r="1.7"/><circle cx="17" cy="17.5" r="1.7"/></svg></span><div><h3>Livraison</h3><p id="info-delivery">Les frais dépendent de votre adresse et vous sont indiqués avant que vous validiez.</p></div></div>
+<div class="info"><span class="ico"><svg class="ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/></svg></span><div><h3>Paiement</h3><p id="info-pay">Le mode de paiement est confirmé avec vous sur WhatsApp avant toute validation.</p></div></div></section>
+
+  <section id="apropos" class="pg" aria-labelledby="h-apropos">
+    <div class="wrap">
+      <h2 id="h-apropos">À propos</h2>
+      <p>AETERNA STORE est une boutique en ligne.</p>
+      <p>Chaque commande est traitée personnellement. Nous vous répondons sur WhatsApp pour confirmer le produit, le prix et la livraison.</p>
+    </div>
+  </section>
+
+  <section id="faq" class="pg" aria-labelledby="h-faq">
+    <div class="wrap">
+      <h2 id="h-faq">Questions fréquentes</h2>
+      <details>
+        <summary>Comment passer commande ?</summary>
+        <p>Cliquez sur « Commander sur WhatsApp » sous le produit choisi. Le message est prérempli, il ne vous reste qu'à l'envoyer.</p>
+      </details>
+      <details>
+        <summary>Quels sont les modes de paiement ?</summary>
+        <p>Le mode de paiement est confirmé avec vous sur WhatsApp avant toute validation de commande.</p>
+      </details>
+      <details>
+        <summary>Un produit est indiqué en rupture, que faire ?</summary>
+        <p>Cliquez sur « Demander la disponibilité ». Nous vous répondons sur WhatsApp dès que possible.</p>
+      </details>
+      <details>
+        <summary>Puis-je modifier ou annuler ma commande ?</summary>
+        <p>Oui, tant que la commande n'a pas été expédiée. Écrivez-nous sur WhatsApp dès que possible.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="livraison" class="pg" aria-labelledby="h-livraison">
+    <div class="wrap">
+      <h2 id="h-livraison">Livraison et retours</h2>
+      <div class="cols">
+        <div class="box">
+          <h3>Frais de livraison</h3>
+          <p>Les frais dépendent de votre adresse. Ils vous sont indiqués sur WhatsApp avant que vous validiez la commande.</p>
+        </div>
+        <div class="box">
+          <h3>Délais</h3>
+          <p>Le délai de livraison vous est confirmé sur WhatsApp au moment de la commande.</p>
+        </div>
+        <div class="box">
+          <h3>Retours et échanges</h3>
+          <p>Vous disposez de 7 jours après réception pour demander un échange ou un remboursement, si le produit est non utilisé et dans son emballage d'origine. Si le produit est défectueux, abîmé ou différent de votre commande, les frais de retour sont à notre charge. Si vous changez d'avis, ils sont à votre charge. Voir <a href="#retours">Retours et rétractation</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact" class="ftr"><div class="wrap"><div class="ftr-in"><div><div class="logo"><svg width="34" height="17" viewBox="0 0 200 100" fill="none" stroke="currentColor" stroke-width="9" stroke-linejoin="round" aria-hidden="true"><path d="M100 50C130 8 190 8 190 50C190 92 130 92 100 50C70 8 10 8 10 50C10 92 70 92 100 50Z"/></svg><span class="lg-name">AETERNA</span><span class="lg-sub">STORE</span></div><p>Boutique en ligne. Commandes par WhatsApp.</p></div>
+<div><h4>Contact</h4><div id="ftr-contact"><p><a href="https://wa.me/2250797034070" target="_blank" rel="noopener noreferrer">WhatsApp : +225 07 97 03 40 70</a></p></div></div>
+<div><h4>Informations</h4><p><a class="linkbtn" href="#pol-mentions">Mentions légales</a></p><p><a class="linkbtn" href="#pol-privacy">Politique de confidentialité</a></p><p><a class="linkbtn" href="#pol-cgu">Conditions d'utilisation</a></p><p><a class="linkbtn" href="#pol-cgv">Conditions de vente</a></p><p><a class="linkbtn" href="#pol-returns">Retours et rétractation</a></p><p><a class="linkbtn" href="#pol-cookies">Cookies et stockage local</a></p></div></div>
+<div class="copy">© <span id="year"></span> AETERNA STORE. Tous droits réservés.</div></div></footer>
+
+<button class="fab" data-action="wa-hello" aria-label="Écrire sur WhatsApp"><svg class="ic" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 0 1-11.7 7.1L4 20l1-4A8 8 0 1 1 20 12Z"/><path d="M9.2 9.5c0 2.9 2.4 5.3 5.3 5.3l1-1.3-1.9-.9-.8.8a3.2 3.2 0 0 1-1.5-1.5l.8-.8-.9-1.9-2 .3Z"/></svg></button>
+<section class="polpage" id="pol-mentions" aria-labelledby="h-pol-mentions"><div class="wrap pol-in"><div class="pol-top"><h2 id="h-pol-mentions">Mentions légales</h2><a class="iconbtn" href="#contact" aria-label="Fermer"><svg class="ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></a></div><div class="pol"><h3>Éditeur du site</h3><p>Doumbia Moussa, exploitant de la boutique en ligne AETERNA STORE. Responsable de publication : Doumbia Moussa.</p><p>Contact : WhatsApp au +225 07 97 03 40 70.</p><h3>Hébergement</h3><p>Site hébergé par Netlify, Inc., San Francisco, Californie, États-Unis (https://www.netlify.com). La liste des produits est stockée chez Google (Firebase).</p><h3>Propriété intellectuelle</h3><p>Les textes, photos, le logo et la présentation du site appartiennent à AETERNA STORE, sauf mention contraire. Toute reproduction sans accord écrit préalable est interdite.</p><h3>Responsabilité</h3><p>Nous faisons au mieux pour que les informations du site soient exactes. Les prix, la disponibilité et la livraison sont confirmés avec vous sur WhatsApp avant toute validation de commande.</p><h3>Données personnelles</h3><p>Consultez notre <a href="#pol-privacy">politique de confidentialité</a>.</p><div class="polnav"><a class="linkbtn" href="#pol-privacy">Politique de confidentialité</a><a class="linkbtn" href="#pol-cgu">Conditions d'utilisation</a><a class="linkbtn" href="#pol-cgv">Conditions de vente</a><a class="linkbtn" href="#pol-returns">Retours et rétractation</a><a class="linkbtn" href="#pol-cookies">Cookies et stockage local</a></div></div></div></section>
+<section class="polpage" id="pol-privacy" aria-labelledby="h-pol-privacy"><div class="wrap pol-in"><div class="pol-top"><h2 id="h-pol-privacy">Politique de confidentialité</h2><a class="iconbtn" href="#contact" aria-label="Fermer"><svg class="ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></a></div><div class="pol"><h3>Ce que nous recevons</h3><p>Nous ne recevons des informations que lorsque vous nous écrivez sur WhatsApp : votre numéro WhatsApp, le nom de votre profil, le contenu de votre commande et ce que vous écrivez (par exemple votre nom et votre adresse de livraison). Le site n'a pas de compte client.</p><h3>Pourquoi nous les utilisons</h3><p>Uniquement pour répondre à votre demande, traiter votre commande, organiser la livraison et assurer le service après-vente. Elles ne sont pas revendues.</p><h3>Durée de conservation</h3><p>Le temps nécessaire au suivi de votre commande, au service après-vente et au respect de nos obligations légales.</p><h3>Sur votre appareil</h3><p>Pour vous éviter de tout retaper, le site garde dans votre navigateur le contenu de votre panier et les informations saisies dans le panier (nom, adresse ou zone de livraison, message), ainsi que votre choix sur la bannière cookies. Ces informations restent sur votre appareil. Voir <a href="#pol-cookies">Cookies et stockage local</a>.</p><h3>Comptage des visites et des clics</h3><p>Le site compte, de manière anonyme, le nombre de visites (un total par jour) et les clics sur les boutons de commande de chaque produit, afin d'améliorer la sélection. Quand vous arrivez depuis une publication ou une publicité Facebook, le site le retient pendant votre visite, uniquement pour ce comptage. Seuls des nombres sont enregistrés. Aucun visiteur n'est identifié et aucun traceur publicitaire n'est utilisé.</p><h3>Registre des commandes</h3><p>La propriétaire peut noter dans un registre privé les commandes reçues sur WhatsApp (nom, téléphone s'il est donné, produits, montant). Ce registre est stocké chez Google (Firebase) et n'est accessible qu'aux personnes autorisées de la boutique. Il sert uniquement au suivi des commandes.</p><h3>Services tiers</h3><p>WhatsApp est un service de Meta, soumis à sa propre politique de confidentialité. Le site est hébergé par Netlify et la liste des produits est stockée chez Google (Firebase). Ces prestataires peuvent conserver des journaux techniques de connexion. Le compte Google n'est utilisé que par la propriétaire pour accéder à l'espace propriétaire.</p><h3>Vos droits</h3><p>Vous pouvez demander à accéder à vos informations, à les corriger ou à les supprimer en nous écrivant sur WhatsApp au +225 07 97 03 40 70.</p><p>Dernière mise à jour : 7 novembre 2026.</p><div class="polnav"><a class="linkbtn" href="#pol-mentions">Mentions légales</a><a class="linkbtn" href="#pol-cgu">Conditions d'utilisation</a><a class="linkbtn" href="#pol-cgv">Conditions de vente</a><a class="linkbtn" href="#pol-returns">Retours et rétractation</a><a class="linkbtn" href="#pol-cookies">Cookies et stockage local</a></div></div></div></section>
+<section class="polpage" id="pol-cgu" aria-labelledby="h-pol-cgu"><div class="wrap pol-in"><div class="pol-top"><h2 id="h-pol-cgu">Conditions d'utilisation</h2><a class="iconbtn" href="#contact" aria-label="Fermer"><svg class="ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></a></div><div class="pol"><h3>Objet</h3><p>Ces conditions encadrent l'utilisation du site AETERNA STORE. En utilisant le site, vous les acceptez.</p><h3>Utilisation du site</h3><p>Le site permet de consulter les produits, de préparer un panier et d'envoyer une demande de commande sur WhatsApp. Vous vous engagez à donner des informations exactes et à ne pas utiliser le site de façon frauduleuse ou nuisible. L'espace propriétaire est réservé à la propriétaire de la boutique.</p><h3>Disponibilité</h3><p>Nous faisons au mieux pour que le site soit accessible en continu, sans pouvoir garantir l'absence d'interruption. Les informations sur les produits et les prix peuvent être modifiées à tout moment.</p><h3>Propriété intellectuelle et liens</h3><p>Les contenus du site sont protégés (voir les <a href="#pol-mentions">mentions légales</a>). Le site renvoie vers des services tiers, comme WhatsApp. Nous ne contrôlons pas leur contenu ni leur fonctionnement.</p><h3>Modification des conditions et droit applicable</h3><p>Nous pouvons mettre à jour ces conditions. La version affichée sur le site est celle qui s'applique. Le droit applicable est celui du pays dans lequel AETERNA STORE exerce son activité.</p><p>Dernière mise à jour : 7 novembre 2026.</p><div class="polnav"><a class="linkbtn" href="#pol-mentions">Mentions légales</a><a class="linkbtn" href="#pol-privacy">Politique de confidentialité</a><a class="linkbtn" href="#pol-cgv">Conditions de vente</a><a class="linkbtn" href="#pol-returns">Retours et rétractation</a><a class="linkbtn" href="#pol-cookies">Cookies et stockage local</a></div></div></div></section>
+<section class="polpage" id="pol-cgv" aria-labelledby="h-pol-cgv"><div class="wrap pol-in"><div class="pol-top"><h2 id="h-pol-cgv">Conditions de vente</h2><a class="iconbtn" href="#contact" aria-label="Fermer"><svg class="ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></a></div><div class="pol"><h3>Produits</h3><p>Chaque produit est présenté avec une photo, une description et un prix. Les produits épuisés ne peuvent pas être commandés.</p><h3>Prix</h3><p>Les prix sont indiqués en franc CFA (FCFA). Les frais de livraison sont indiqués séparément et confirmés avant le paiement.</p><h3>Commande</h3><p>La commande se fait par WhatsApp. L'envoi du panier est une demande de commande. Le contrat est conclu lorsque la commande est confirmée par nous sur WhatsApp, après accord sur les produits, le prix total, la livraison et le paiement.</p><h3>Paiement</h3><p>Le mode de paiement est confirmé avec vous sur WhatsApp avant toute validation.</p><h3>Livraison</h3><p>Le délai et les frais sont communiqués lors de la confirmation de commande. Tout retard ou problème de livraison doit nous être signalé sur WhatsApp dès que possible.</p><h3>Retours et réclamations</h3><p>Vous disposez de 7 jours après réception pour demander un retour ou un échange. Les conditions et les frais sont détaillés sur la page <a href="#pol-returns">Retours et rétractation</a>.</p><h3>Litiges</h3><p>En cas de difficulté, contactez-nous d'abord pour trouver une solution à l'amiable. À défaut, les tribunaux compétents sont ceux du lieu d'établissement de la boutique.</p><p>Dernière mise à jour : 7 novembre 2026.</p><div class="polnav"><a class="linkbtn" href="#pol-mentions">Mentions légales</a><a class="linkbtn" href="#pol-privacy">Politique de confidentialité</a><a class="linkbtn" href="#pol-cgu">Conditions d'utilisation</a><a class="linkbtn" href="#pol-returns">Retours et rétractation</a><a class="linkbtn" href="#pol-cookies">Cookies et stockage local</a></div></div></div></section>
+<section class="polpage" id="pol-returns" aria-labelledby="h-pol-returns"><div class="wrap pol-in"><div class="pol-top"><h2 id="h-pol-returns">Retours et rétractation</h2><a class="iconbtn" href="#contact" aria-label="Fermer"><svg class="ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></a></div><div class="pol"><h3>Délai pour demander un retour</h3><p>Vous avez 7 jours après la réception de votre commande pour nous demander le retour ou l'échange d'un produit. Écrivez-nous sur WhatsApp au +225 07 97 03 40 70 en indiquant le produit concerné et la raison.</p><h3>Conditions</h3><p>Le produit doit être non utilisé, dans son emballage d'origine et avec ses accessoires. Pour un produit défectueux ou abîmé à la livraison, envoyez-nous une photo sur WhatsApp, nous traitons votre demande en priorité.</p><h3>Frais de retour</h3><p>Si le produit est défectueux, abîmé ou différent de votre commande, les frais de retour sont à notre charge. Si vous changez d'avis, les frais de retour sont à votre charge.</p><h3>Remboursement ou échange</h3><p>Une fois le produit reçu et contrôlé, nous vous remboursons par le moyen de paiement utilisé, ou nous vous envoyons un autre produit selon votre choix. Le remboursement est effectué dans un délai de 7 jours après le contrôle.</p><h3>Rétractation</h3><p>Si la loi applicable vous accorde un droit de rétractation pour un achat en ligne, il s'exerce dans les conditions et les délais qu'elle prévoit. Contactez-nous sur WhatsApp pour l'exercer.</p><p>Dernière mise à jour : 7 novembre 2026.</p><div class="polnav"><a class="linkbtn" href="#pol-mentions">Mentions légales</a><a class="linkbtn" href="#pol-privacy">Politique de confidentialité</a><a class="linkbtn" href="#pol-cgu">Conditions d'utilisation</a><a class="linkbtn" href="#pol-cgv">Conditions de vente</a><a class="linkbtn" href="#pol-cookies">Cookies et stockage local</a></div></div></div></section>
+<section class="polpage" id="pol-cookies" aria-labelledby="h-pol-cookies"><div class="wrap pol-in"><div class="pol-top"><h2 id="h-pol-cookies">Cookies et stockage local</h2><a class="iconbtn" href="#contact" aria-label="Fermer"><svg class="ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></a></div><div class="pol"><h3>Pas de suivi publicitaire</h3><p>Ce site n'utilise ni cookie publicitaire ni outil de mesure d'audience externe. Il compte seulement, de façon anonyme, le nombre de visites et de clics.</p><h3>Stockage dans votre navigateur</h3><p>Le site utilise le stockage local de votre navigateur pour retenir votre panier, les informations saisies dans le panier (nom, adresse ou zone de livraison, message) et votre choix sur la bannière cookies. Le temps de votre visite, il retient aussi que la visite a déjà été comptée et, le cas échéant, qu'elle vient de Facebook. Ce stockage est nécessaire au fonctionnement du site. Il reste sur votre appareil.</p><h3>Effacer ces données</h3><p>Vous pouvez les supprimer à tout moment en effaçant les données du site dans les réglages de votre navigateur.</p><h3>Si un suivi était ajouté</h3><p>Si un outil de suivi (par exemple celui de Facebook) devait être ajouté un jour, cette page serait mise à jour et votre accord serait demandé avant son activation.</p><p>Voir aussi la <a href="#pol-privacy">politique de confidentialité</a>.</p><p>Dernière mise à jour : 7 novembre 2026.</p><div class="polnav"><a class="linkbtn" href="#pol-mentions">Mentions légales</a><a class="linkbtn" href="#pol-privacy">Politique de confidentialité</a><a class="linkbtn" href="#pol-cgu">Conditions d'utilisation</a><a class="linkbtn" href="#pol-cgv">Conditions de vente</a><a class="linkbtn" href="#pol-returns">Retours et rétractation</a></div></div></div></section>
+<div id="layer"></div>
+
+<div id="cookie" hidden>
+  <div class="wrap">
+    <p>Ce site n'utilise que des éléments techniques nécessaires. Aucun cookie publicitaire.</p>
+    <button class="btn" id="cookie-ok" type="button">Compris</button>
+  </div>
+</div>
+
+<div id="toast" role="status" aria-live="polite" hidden></div>
+
+
+
+<script type="module" src="shop.js"></script>
+</body>
+</html>
